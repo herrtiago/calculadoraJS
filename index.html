@@ -6,32 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
+    <script defer src="./main.js"></script>
   </head>
   <body>
     <div id="container">
         <h3 id="resultado"></h3>
         <div id="operadores">
             <input id="operador1"></input>
-            <label id="operacion">+</label>
+            <label id="operacion"></label>
             <input id="operador2"></input>
         </div>
         <div id="botones">
             <button id="siete">7</button>
             <button id="ocho">8</button>
             <button id="nueve">9</button>
-            <button id="suma">+</button>
+            <button id="suma" onclick="operador('+')">+</button>
             <button id="cuatro">4</button>
             <button id="cinco">5</button>
             <button id="seis">6</button>
-            <button id="resta">-</button>
+            <button id="resta" onclick="operador('-')">-</button>
             <button id="uno">1</button>
             <button id="dos">2</button>
             <button id="tres">3</button>
-            <button id="multiplicacion">*</button>
+            <button id="multiplicacion" onclick="operador('*')">*</button>
             <button id="cero">0</button>
-            <button id="igual">=</button>
-            <button id="AC">AC</button>
-            <button id="division">/</button>
+            <button id="igual" onclick="operador('=')">=</button>
+            <button id="AC"  onclick="operador('AC')">AC</button>
+            <button id="division" onclick="operador('/')">/</button>
         </div>
     </div>
   </body>

@@ -18,7 +18,7 @@ body {
     border: 2px solid rgb(6, 167, 216);
     margin-top: 1vh;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 2% 0;
@@ -53,11 +53,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 #botones {
     height: 70%;
-    width: 60%;
+    width: 80%;
     display: grid;
     grid-template-areas: "siete ocho nueve suma"
         "cuatro cinco seis resta"
@@ -70,7 +71,7 @@ body {
 }
 
 #botones button {
-    font-size: xx-large;
+    font-size:xx-large;
 }
 
 #botones button:hover {
@@ -161,7 +162,11 @@ body {
 
 @media(max-width:800px){
     #container{
-        height: 70vh;
-        min-width: 30vw;
+        min-width: 200px;
+        min-height: 300px;
+    }
+    button{
+        min-width: 50px;
+        font-size:large;
     }
 }
