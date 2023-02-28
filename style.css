@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    height: 70vh;
+    width: 50vw;
+    border: 2px solid rgb(6, 167, 216);
+    margin-top: 1vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 2% 0;
+    gap:2%;
+}
+
+#resultado {
+    height: 15%;
+    width: 90%;
+    border: 2px solid rgb(6, 167, 216);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+
+#operadores {
+    height: 15%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5%;
+}
+
+#operadores label,
+#operadores input {
+    height: 90%;
+    width: 20%;
+    border: 1px solid rgb(6, 167, 216);
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#botones {
+    height: 70%;
+    width: 60%;
+    display: grid;
+    grid-template-areas: "siete ocho nueve suma"
+        "cuatro cinco seis resta"
+        "uno dos tres multiplicacion"
+        "cero igual AC division"
+    ;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+#botones button {
+    font-size: xx-large;
+}
+
+#botones button:hover {
+    background-color: rgb(184, 188, 192);
+}
+
+
+#siete {
+    grid-area: "siete";
+
+}
+
+#ocho {
+    grid-area: "ocho";
+
+}
+
+#nueve {
+    grid-area: "nueve";
+
+}
+
+#suma {
+    grid-area: "suma";
+    background-color: #8ca0ff;
+}
+
+#cuatro {
+    grid-area: "cuatro";
+
+}
+
+#cinco {
+    grid-area: "cinco";
+
+}
+
+#seis {
+    grid-area: "seis";
+
+}
+
+#resta {
+    grid-area: "resta";
+    background-color: #8ca0ff;
+}
+
+#uno {
+    grid-area: "uno";
+
+}
+
+
+#dos {
+    grid-area: "dos";
+
+}
+
+#tres {
+    grid-area: "tres";
+
+}
+
+#multiplicacion {
+    grid-area: "multiplicacion";
+    background-color: #8ca0ff;
+}
+
+#cero {
+    grid-area: "cero";
+
+}
+
+#igual {
+    grid-area: "igual";
+    background-color: #e6ccb3;
+}
+
+#AC {
+    grid-area: "AC";
+    background-color: #e6ccb3;
+}
+
+#division {
+    grid-area: "division";
+    background-color: #8ca0ff;
+}
+
+@media(max-width:800px){
+    #container{
+        height: 70vh;
+        min-width: 30vw;
+    }
+}
