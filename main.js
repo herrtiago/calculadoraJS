@@ -1,81 +1,67 @@
-const input = document.getElementById("input");
-const result = document.getElementById("resultado");
-const operacion = document.getElementById("operacion");
-const cero = document.getElementById("cero");
-const uno = document.getElementById("uno");
-const dos = document.getElementById("dos");
-const tres = document.getElementById("tres");
-const cuatro = document.getElementById("cuatro");
-const cinco = document.getElementById("cinco");
-const seis = document.getElementById("seis");
-const siete = document.getElementById("siete");
-const ocho = document.getElementById("ocho");
-const nueve = document.getElementById("nueve");
-let input1 = 0;
+let numeroActual = "";
+let operacionActual = "";
+let resultado = "";
 
-function mostrar(resultado, inpt) {
-  result.innerHTML = resultado;
-  input.innerHTML = inpt;
+
+function operador(op) {
+  if (op === "AC") {
+    numeroActual = "";
+    operacionActual = "";
+    resultado = "";
+    actualizarPantalla();
+  } else if (op === "=") {
+    resultado = realizarOperacion();
+    numeroActual = resultado;
+    actualizarPantalla();
+  } else {
+    operacionActual = op;
+    resultado = parseFloat(numeroActual);
+    numeroActual = "";
+    actualizarPantalla();
+  }
 }
 
-function operador(operando) {
-  let resultado;
-  switch (operando) {
+
+function actualizarPantalla() {
+  document.getElementById("labelNumero").innerHTML = numeroActual;
+  document.getElementById("labelOperacion").innerHTML = operacionActual;
+  document.getElementById("resultado").innerHTML = resultado;
+}
+function realizarOperacion() {
+  let res = 0;
+  switch (operacionActual) {
     case "+":
-      resultado = +input1 + +input.value;
-      operacion.innerHTML="+";
+      res = parseFloat(resultado) + parseFloat(numeroActual);
       break;
     case "-":
-      resultado = +input1 - +input.value;
-      operacion.innerHTML="-";
+      res = parseFloat(resultado) - parseFloat(numeroActual);
       break;
     case "*":
-      resultado = +input1 * *+input.value;
-      operacion.innerHTML="+";
+      res = parseFloat(resultado) * parseFloat(numeroActual);
       break;
     case "/":
-      resultado = +input1 / +input.value;
-      operacion.innerHTML="/";
-      break;
-    case "AC":
-        operacion.innerHTML="";
-      resultado = "";
-      input.value = "";
+      if (parseFloat(numeroActual) !== 0) {
+        res = parseFloat(resultado) / parseFloat(numeroActual);
+      } else {
+        res = "Error: división entre cero";
+      }
       break;
     default:
-      resultado = "";
+      res = parseFloat(numeroActual);
       break;
   }
-  mostrar(resultado, input.value);
+  return res;
 }
 
-cero.addEventListener("click", function () {
-  input.innerHTML = cero.value;
-});
-uno.addEventListener("click", function () {
-  input.innerHTML = uno.value;
-});
-dos.addEventListener("click", function () {
-  input.innerHTML = dos.value;
-});
-tres.addEventListener("click", function () {
-  input.innerHTML = tres.value;
-});
-cuatro.addEventListener("click", function () {
-  input.innerHTML = cuatro.value;
-});
-cinco.addEventListener("click", function () {
-  input.innerHTML = cinco.value;
-});
-seis.addEventListener("click", function () {
-  input.innerHTML = seis.value;
-});
-siete.addEventListener("click", function () {
-  input.innerHTML = siete.value;
-});
-ocho.addEventListener("click", function () {
-  input.innerHTML = ocho.value;
-});
-nueve.addEventListener("click", function () {
-  input.innerHTML = nueve.value;
+
+
+document.querySelectorAll("#botones button").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.value === "+" || button.value === "-" || button.value === "*" || button.value === "/") {
+      operador(button.value);
+    } else {
+      numeroActual += button.value;
+      actualizarPantalla();
+    }
+  });
 });
